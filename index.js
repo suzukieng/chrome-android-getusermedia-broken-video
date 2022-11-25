@@ -2,6 +2,7 @@ function startVideo(width, height) {
     let constraints = {
         audio: false,
         video: {
+            // note: width/height intentionally swapped, as browser will rotate the stream and we expect the page to be viewed in portrait orientation
             width: {
                 min: height,
                 ideal: height,
