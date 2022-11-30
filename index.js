@@ -18,10 +18,10 @@ function startVideo(width, height) {
             }
         }
     };
+    document.getElementById('constraints').innerText = JSON.stringify(constraints);
     navigator.mediaDevices.getUserMedia(constraints).then((mediaStream) => {
         let videoTrack = mediaStream.getVideoTracks()[0];
         document.getElementById('resolution').innerText = videoTrack.getSettings().width + ' x ' + videoTrack.getSettings().height;
-        document.getElementById('device').innerText = videoTrack.getSettings().deviceId;
         let videoElem = document.getElementById('video');
         videoElem.srcObject = mediaStream;
         videoElem.play()
